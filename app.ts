@@ -1,30 +1,34 @@
-enum StatusCode {
-	SUCCESS = 1,
-	IN_PROCESS = 'p',
-	FAILED = 'f',
+function logId(id: string | number | boolean) {
+	if (typeof id === 'string') {
+		console.log(id);
+	} else if (typeof id === 'number') {
+		console.log(id);
+	} else {
+		console.log(id);
+	}
 }
 
-const res = {
-	message: 'Платеж успешен',
-	statusCode: StatusCode.SUCCESS,
-};
-
-// 1 - успех
-// 'p' - в процессе
-// 'f' - отклонен
-
-if (res.statusCode === StatusCode.SUCCESS) {
+function logError(err: string | string[]) {
+	if (Array.isArray(err)) {
+		console.log(err);
+	} else {
+		console.log(err);
+	}
 }
 
-function action(status: StatusCode) {}
-
-action(StatusCode.SUCCESS);
-action(1);
-
-const enum Roles {
-	ADMIN = 1,
-	USER = ADMIN * 2,
-	USER2 = 3,
+function logObject(obj: { a: number } | { b: number }) {
+	if ('a' in obj) {
+		console.log(obj.a);
+	} else {
+		console.log(obj.b);
+	}
 }
 
-const res2 = Roles.ADMIN;
+function logMultipleIds(a: string | number, b: string | boolean) {
+	if (a === b) {
+	} else {
+		console.log(a);
+	}
+}
+
+let a: 1 = 1;
