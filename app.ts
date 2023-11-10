@@ -1,45 +1,18 @@
 interface User {
 	name: string;
+}
+
+interface User {
 	age: number;
-	skills: string[];
-
-	log: (id: number) => string;
 }
 
-interface Role {
-	roleId: number;
-}
-
-interface UserWithRole extends User, Role {
-	createdAt: Date;
-}
-
-type User2 = {
-	name: string;
-	age: number;
-	skills: string[];
-
-	log: (id: number) => string;
-};
-
-let user: UserWithRole = {
-	name: 'asd',
+const user: User = {
+	name: 'as',
 	age: 26,
-	skills: ['1', '2'],
-	roleId: 1,
-	createdAt: new Date(),
-
-	log(id) {
-		return '';
-	},
 };
 
-interface UserDic {
-	[index: number]: User;
+type ID = string | number;
+
+interface IDI {
+	ID: string | number;
 }
-
-type UserDic2 = {
-	[index: number]: User;
-};
-
-type ud = Record<number, User>;
