@@ -1,19 +1,45 @@
-type User = {
+interface User {
 	name: string;
 	age: number;
 	skills: string[];
-};
 
-type Role = {
+	log: (id: number) => string;
+}
+
+interface Role {
+	roleId: number;
+}
+
+interface UserWithRole extends User, Role {
+	createdAt: Date;
+}
+
+type User2 = {
 	name: string;
-	id: number;
-};
+	age: number;
+	skills: string[];
 
-type UserWithRole = User & Role;
+	log: (id: number) => string;
+};
 
 let user: UserWithRole = {
 	name: 'asd',
 	age: 26,
 	skills: ['1', '2'],
-	id: 1,
+	roleId: 1,
+	createdAt: new Date(),
+
+	log(id) {
+		return '';
+	},
 };
+
+interface UserDic {
+	[index: number]: User;
+}
+
+type UserDic2 = {
+	[index: number]: User;
+};
+
+type ud = Record<number, User>;
