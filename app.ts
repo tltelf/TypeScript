@@ -1,30 +1,29 @@
-interface User {
-	login: string;
-	password?: string;
+function logId(id: string | number): void {
+	console.log(id);
 }
 
-const user: User = {
-	login: 'a@a.ru',
+const a = logId(1);
+
+function multiply(f: number, s?: number) {
+	if (!s) {
+		return f * f;
+	}
+}
+
+type voidFunc = () => void;
+
+const f1: voidFunc = () => {};
+
+const f2: voidFunc = () => {
+	return true;
 };
 
-function multiply(first: number, second?: number): number {
-	if (!second) {
-		return first * first;
-	}
-	return first * second;
-}
+const b = f2();
 
-interface UserPro {
-	login: string;
-	password?: {
-		type: 'primary' | 'secondary';
-	};
-}
+const skills = ['Dev', 'DevOps'];
 
-function testPass(user: UserPro) {
-	const t = user.password?.type;
-}
+const user = {
+	s: ['s'],
+};
 
-function test(param?: string) {
-	const t = param ?? 2 * 2;
-}
+skills.forEach((skill) => user.s.push(skill));
