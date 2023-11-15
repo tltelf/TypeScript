@@ -1,35 +1,21 @@
 "use strict";
-function genereateError(message) {
-    throw new Error(message);
-}
-function dumpError() {
-    while (true) { }
-}
-function rec() {
-    return rec();
-}
-function processAction(action) {
-    switch (action) {
-        case 'refund':
-            //...
-            break;
-        case 'checkout':
-            // ...
-            break;
-        case 'reject':
-            // ...
-            break;
-        default:
-            const _ = action;
-            throw new Error('Нет такого action');
+const n = null;
+const n1 = null;
+const n2 = null;
+const n3 = null;
+const n4 = null;
+const n5 = null;
+function getUser() {
+    if (Math.random() > 0.5) {
+        return null;
+    }
+    else {
+        return {
+            name: 'Вася'
+        };
     }
 }
-function isString(x) {
-    if (typeof x === 'string') {
-        return true;
-    }
-    else if (typeof x === 'number') {
-        return false;
-    }
-    genereateError('sdfsdf');
+const user = getUser();
+if (user) {
+    const n55 = user.name;
 }
