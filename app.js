@@ -1,29 +1,26 @@
 "use strict";
-var PaymentStatus;
-(function (PaymentStatus) {
-    PaymentStatus[PaymentStatus["Holded"] = 0] = "Holded";
-    PaymentStatus[PaymentStatus["Processed"] = 1] = "Processed";
-    PaymentStatus[PaymentStatus["Reversed"] = 2] = "Reversed";
-})(PaymentStatus || (PaymentStatus = {}));
-class Payment {
-    constructor(id) {
-        this.status = PaymentStatus.Holded;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+class User {
+    set login(l) {
+        this._login = 'user-' + l;
         this.createdAt = new Date();
-        this.id = id;
     }
-    getPaymentLifeTime() {
-        return new Date().getTime() - this.createdAt.getTime();
+    get login() {
+        return this._login;
     }
-    unholdPayment() {
-        if (this.status == PaymentStatus.Processed) {
-            throw new Error('Платёж не может быть возвращен!');
-        }
-        this.status = PaymentStatus.Reversed;
-        this.updatedAt = new Date();
+    getPassword(p) {
+        return __awaiter(this, void 0, void 0, function* () { });
     }
 }
-const payment = new Payment(1);
-payment.unholdPayment();
-console.log(payment);
-const time = payment.getPaymentLifeTime();
-console.log(time);
+const user = new User();
+user.login = 'myLogin';
+console.log(user);
+console.log(user.login);
