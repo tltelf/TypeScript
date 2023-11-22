@@ -8,19 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class User {
-    set login(l) {
-        this._login = 'user-' + l;
-        this.createdAt = new Date();
+class Looger {
+    log(...args) {
+        console.log(...args);
     }
-    get login() {
-        return this._login;
-    }
-    getPassword(p) {
-        return __awaiter(this, void 0, void 0, function* () { });
+    error(...args) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Кинуть во внешнюю систему
+            console.log(...args);
+        });
     }
 }
-const user = new User();
-user.login = 'myLogin';
-console.log(user);
-console.log(user.login);
+class User {
+    pay(paymentId) {
+        ///
+    }
+}
