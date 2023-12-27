@@ -1,16 +1,28 @@
 "use strict";
-class Contoller {
-    handleWithLogs(req) {
-        console.log('Start');
-        this.handle(req);
-        console.log('End');
+class List {
+    constructor(items) {
+        this.items = items;
     }
 }
-class UserController extends Contoller {
-    handle(req) {
-        console.log(req);
+class Accordion {
+}
+class ExtendedListClass extends List {
+    first() {
+        return this.items[0];
     }
 }
-const c = new UserController();
-c.handleWithLogs('Request');
-Math.random();
+function ExtendedList(Base) {
+    return class ExtendedList extends Base {
+        first() {
+            return this.items[0];
+        }
+    };
+}
+class AccordionList {
+    constructor(items) {
+        this.items = items;
+    }
+}
+const list = ExtendedList(AccordionList);
+const res = new list(['first', 'second']);
+console.log(res.first());
