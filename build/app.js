@@ -1,28 +1,21 @@
 "use strict";
-class List {
-    constructor(items) {
-        this.items = items;
+class UserService {
+    constructor() {
+        this.users = 1000;
+    }
+    getUsersInDatabase() {
+        return this.users;
     }
 }
-class Accordion {
+function nullUser(obj) {
+    obj.users = 0;
+    return obj;
 }
-class ExtendedListClass extends List {
-    first() {
-        return this.items[0];
-    }
+function logUsers(obj) {
+    console.log('Users: ' + obj.users);
+    return obj;
 }
-function ExtendedList(Base) {
-    return class ExtendedList extends Base {
-        first() {
-            return this.items[0];
-        }
-    };
-}
-class AccordionList {
-    constructor(items) {
-        this.items = items;
-    }
-}
-const list = ExtendedList(AccordionList);
-const res = new list(['first', 'second']);
-console.log(res.first());
+console.log(new UserService().getUsersInDatabase());
+console.log(nullUser(new UserService()).getUsersInDatabase());
+console.log(logUsers(nullUser(new UserService())).getUsersInDatabase());
+console.log(nullUser(logUsers(new UserService())).getUsersInDatabase());
